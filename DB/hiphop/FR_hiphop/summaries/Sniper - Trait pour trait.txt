@@ -1,0 +1,1 @@
+The hyphen "-" should not be confused with the "dash", nor with the minus sign. However, it can be considered - at the coding or appearance level - as a short dash. It is sometimes named (more or less precisely): dash, minus sign, even, according to typograph division, quarter dash of em.
