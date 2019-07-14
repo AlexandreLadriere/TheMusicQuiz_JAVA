@@ -7,8 +7,8 @@ import java.util.Objects;
 public class Question {
     protected QuestionType questionType;
     protected Item questionItem;
-    protected float questionScore;
-    protected float questionTime; //type peut etre a revoir
+    protected int questionScore;
+    protected long questionTime; //in ms
     protected Item questionOptions[] = new Item[Constantes.NUMBER_OF_PROPOSITIONS.getValue()];
     protected boolean questionIsCorrect;
     protected String questionCorrectAnswer;
@@ -16,8 +16,8 @@ public class Question {
     Question() {
         questionType = QuestionType.UNDEFINED;
         questionItem = new Item();
-        questionScore = 0.0f;
-        questionTime = 0.0f;
+        questionScore = 0;
+        questionTime = 0L;
         questionIsCorrect = false;
         this.setQuestionOptionsEmpty();
         this.setQuestionCorrectAnswer();
@@ -26,8 +26,8 @@ public class Question {
     Question(QuestionType pQuestionType, Item pItem, Item[] pItemTab) {
         questionType = pQuestionType;
         questionItem = pItem;
-        questionScore = 0.0f;
-        questionTime = 0.0f;
+        questionScore = 0;
+        questionTime = 0L;
         questionIsCorrect = false;
         this.setQuestionCorrectAnswer();
         this.setQuestionOptions(pItemTab);
@@ -41,11 +41,12 @@ public class Question {
         return questionItem;
     }
 
-    public float getQuestionScore() {
+    public int getQuestionScore() {
+        //this.calculateQuestionScore();
         return questionScore;
     }
 
-    public float getQuestionTime() {
+    public long getQuestionTime() {
         return questionTime;
     }
 
@@ -65,11 +66,11 @@ public class Question {
         this.questionIsCorrect = pQuestionIsCorrect;
     }
 
-    public void setQuestionTime(float pQuestionTime) {
+    public void setQuestionTime(long pQuestionTime) {
         this.questionTime = pQuestionTime;
     }
 
-    public void setQuestionScore(float pQuestionScore) {
+    private void setQuestionScore(int pQuestionScore) {
         this.questionScore = pQuestionScore;
     }
 
@@ -128,8 +129,15 @@ public class Question {
     public boolean checkAnswer(String pAnswer) {
         if(pAnswer.equals(this.questionCorrectAnswer)) {
             this.setQuestionIsCorrect(true);
+            this.calculateQuestionScore();
         }
         return this.getQuestionIsCorrect();
+    }
+
+    private void calculateQuestionScore() {
+        Float tmpFloat = new Float(100000/this.getQuestionTime());
+        int tmpQuestionScore = tmpFloat.intValue();
+        this.setQuestionScore(tmpQuestionScore);
     }
 
     public String getProposition(Item pItem) {
