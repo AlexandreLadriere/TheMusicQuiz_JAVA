@@ -5,6 +5,7 @@ import com.themusicquiz.enumerations.QuestionType;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.util.Objects;
 
 public class QuestionSerie {
     protected String questionSerieDBPath;
@@ -129,5 +130,29 @@ public class QuestionSerie {
 
     private void setQuestionSerieQuestionList(List<Question> pQuestionList) {
         this.questionSerieQuestionList = pQuestionList;
+    }
+
+    public String toString() {
+        String tmpStr = "QuestionSerie DBPath: "+this.questionSerieDBPath+"\nQuestionSerie QuestionType: "+this.questionSerieQuestionType
+                        +"\nQuestionSerie correctAnswerNumber:"+this.getQuestionSerieCorrectAnswerNumber()+"\nQuestionSerie AverageTime: "
+                        +this.getQuestionSerieAverageTime()+"\nQuestionSerie TotalScore: "+this.getQuestionSerieTotalScore();
+        return tmpStr; //Afficher les lists ?
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        QuestionSerie other = (QuestionSerie) obj;
+        return Objects.equals(other.getQuestionSerieAverageTime(), this.getQuestionSerieAverageTime()) 
+                && Objects.equals(other.getQuestionSerieCorrectAnswerNumber(), this.getQuestionSerieCorrectAnswerNumber()) 
+                && Objects.equals(other.getQuestionSerieDBPath(), this.getQuestionSerieDBPath()) 
+                && Objects.equals(other.getQuestionSerieItemList(), this.getQuestionSerieItemList()) 
+                && Objects.equals(other.getQuestionSerieQuestionList(), this.getQuestionSerieQuestionList()) 
+                && Objects.equals(other.getQuestionSerieQuestionType(), this.getQuestionSerieQuestionType())
+                && Objects.equals(other.getQuestionSerieTotalScore(), this.getQuestionSerieTotalScore());
     }
 }

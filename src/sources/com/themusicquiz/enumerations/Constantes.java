@@ -3,7 +3,7 @@ package com.themusicquiz.enumerations;
 public enum Constantes {
     NUMBER_OF_DB_PARAMETERS(4),
     NUMBER_OF_PROPOSITIONS(4),
-    NUMBER_OF_QUESTIONS(3);
+    NUMBER_OF_QUESTIONS(10);
 
     protected int value = 0;
 
