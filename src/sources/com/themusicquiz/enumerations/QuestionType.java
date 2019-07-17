@@ -1,3 +1,9 @@
+/*
+ * @Author: Alexandre Ladrière 
+ * @Date: 2019-07-17 17:35:12 
+ * @Last Modified by:   Alexandre Ladrière 
+ * @Last Modified time: 2019-07-17 17:35:12 
+ */
 package com.themusicquiz.enumerations;
 
 public enum QuestionType {

@@ -1,3 +1,9 @@
+/*
+ * @Author: Alexandre Ladrière 
+ * @Date: 2019-07-17 17:35:00 
+ * @Last Modified by:   Alexandre Ladrière 
+ * @Last Modified time: 2019-07-17 17:35:00 
+ */
 package com.themusicquiz.composants;
 
 import java.nio.file.Files;

@@ -1,3 +1,9 @@
+/*
+ * @Author: Alexandre Ladrière 
+ * @Date: 2019-07-17 17:33:54 
+ * @Last Modified by:   Alexandre Ladrière 
+ * @Last Modified time: 2019-07-17 17:33:54 
+ */
 package com.themusicquiz.composants;
 
 import com.themusicquiz.enumerations.Constantes;
