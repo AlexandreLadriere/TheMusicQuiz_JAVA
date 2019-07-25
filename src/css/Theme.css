@@ -1,0 +1,24 @@
+.root{
+    -fx-background-color: linear-gradient(to bottom right, #54BBA2, #2A63B8);
+}
+
+.label{
+    -fx-border-color: red;
+}
+
+#main_title{
+    /*-fx-text-alignment: center; NOT WORKING*/
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-style: normal;
+    -fx-font-size: 40px;
+    -fx-font-family: Nunito;
+}
+
+#created_by{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-style: normal;
+    -fx-font-size: 15px;
+    -fx-font-family: Nunito;
+}
