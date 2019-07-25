@@ -17,24 +17,14 @@ In addition to these question types, you have the option __Discover__: question 
 The database is build from different albums charts you can find on the internet (like on [Rate Your Music]) thanks to a python script. This python script is also scraping information from [Wikipedia], and translating them in english if needed thanks to [Deepl].
 
 ## Test
-To test the application, you just have to run the [run.sh] file:
+First, you need to compile all the files thanks to the compile.sh file:
 ```sh
-$ cd src
-$ sh run.sh
-```
-
-This will compile all the java file and start the application.
-
-Alternatively, you can first compile files thanks to [compile.sh]:
-```sh
-$ cd src/sources
 $ sh compile.sh
 ```
 
-then, run the test file which will launch the application:
+To run the application, you just have to run the run.sh file:
 ```sh
-$ cd ../classes
-$ java com/themusicquiz/composants/Test
+$ sh run.sh
 ```
 
 ## Developed with

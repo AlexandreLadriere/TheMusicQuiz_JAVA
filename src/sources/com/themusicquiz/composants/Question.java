@@ -141,7 +141,8 @@ public class Question {
     }
 
     private void calculateQuestionScore() {
-        Float tmpFloat = new Float(100000/this.getQuestionTime());
+        //Float tmpFloat = new Float(100000/this.getQuestionTime());
+        Float tmpFloat = Float.valueOf((float) 100000/this.getQuestionTime());
         int tmpQuestionScore = tmpFloat.intValue();
         this.setQuestionScore(tmpQuestionScore);
     }

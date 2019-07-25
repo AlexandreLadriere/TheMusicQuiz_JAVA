@@ -1,3 +1,5 @@
+cd ./src/sources/
+
 javac -d ../classes com/themusicquiz/enumerations/QuestionType.java
 javac -d ../classes com/themusicquiz/enumerations/Paths.java
 javac -d ../classes com/themusicquiz/enumerations/MusicGenres.java
