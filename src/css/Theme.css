@@ -3,22 +3,61 @@
 }
 
 .label{
-    -fx-border-color: red;
+    /*-fx-border-color: red;*/
+    -fx-font-family: Nunito;
+    -fx-font-style: normal;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.button{
+    /*-fx-border-color: red;*/
+    -fx-font-family: Nunito;
+    -fx-font-style: normal;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 34.5px;
+    -fx-font-size: 25px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,4,4 ); 
+}
+
+.button:hover {
+    -fx-background-color: rgb(65, 153, 158);
+}
+
+.button:pressed {
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+}
+
+#start_button {
+    -fx-background-color: #4FC585;
+}
+
+#start_button:hover {
+    -fx-background-color: rgb(52, 153, 98);
+}
+
+#settings_button {
+    -fx-background-color: transparent;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: #4FC585; 
+    -fx-border-radius: 34.5px;
+}
+
+#settings_button:hover {
+    -fx-background-color: rgba(245, 253, 249, 0.068);
 }
 
 #main_title{
     /*-fx-text-alignment: center; NOT WORKING*/
-    -fx-text-fill: #FFFFFF;
-    -fx-font-weight: bold;
-    -fx-font-style: normal;
     -fx-font-size: 40px;
-    -fx-font-family: Nunito;
 }
 
 #created_by{
-    -fx-text-fill: #FFFFFF;
-    -fx-font-weight: bold;
-    -fx-font-style: normal;
     -fx-font-size: 15px;
-    -fx-font-family: Nunito;
+}
+
+#author_label{
+    -fx-font-size: 10px;
 }

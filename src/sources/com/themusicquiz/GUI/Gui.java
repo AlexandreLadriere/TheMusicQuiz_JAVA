@@ -2,12 +2,16 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-25 18:17:15
+ * @Last Modified time: 2019-07-25 21:34:53
  */
 package com.themusicquiz.GUI;
 
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException; 
+
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,6 +41,7 @@ public class Gui extends Application {
 
     private Stage window;
     private Scene welcomeScene;
+    private Scene homeScene;
 
     @Override
     public void start(Stage primaryStage) {
@@ -44,13 +49,63 @@ public class Gui extends Application {
 
         try {
             welcomeScene = CreateWelcomeScene();
+            homeScene = createHomeScene();
+
+            window.setScene(welcomeScene);
+            window.setTitle("The Music Quiz");
+            //pause between welcom scene and homeScene
+            PauseTransition delay = new PauseTransition(new Duration((double) 2000));
+            delay.setOnFinished( event -> window.setScene(homeScene) );
+
+            delay.play();
+            window.show();
         }
         catch(FileNotFoundException e) {
             e.printStackTrace();
         }
-        window.setScene(welcomeScene);
-        window.setTitle("The Music Quiz");
-        window.show();
+    }
+
+    private Scene createHomeScene() throws FileNotFoundException {
+        GridPane grid = createGridPaneWithConstraints(1, 10);
+        //grid.setGridLinesVisible(true);
+
+        Label mainTitle = new Label("The Music Quiz");
+        mainTitle.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        mainTitle.setAlignment(Pos.CENTER);
+        mainTitle.setId("main_title");
+        grid.add(mainTitle, 0, 1, 1, 1);
+
+        Image appLogo = new Image(new FileInputStream(Paths.ALBUM_ICON.getPath()), 105, 105, true, true);
+        Label appLogoLabel = new Label();
+        appLogoLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        appLogoLabel.setGraphic(new ImageView(appLogo));
+        appLogoLabel.setAlignment(Pos.CENTER);
+        grid.add(appLogoLabel, 0, 3, 1, 1);
+
+        Button startButton = new Button("Start");
+        startButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        startButton.setAlignment(Pos.CENTER);
+        startButton.setId("start_button");
+        grid.add(startButton, 0, 5, 1, 1);
+        grid.setMargin(startButton, new Insets(5, 50, 5, 50));
+
+        Button settingsButton = new Button("Settings");
+        settingsButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        settingsButton.setAlignment(Pos.CENTER);
+        settingsButton.setId("settings_button");
+        grid.add(settingsButton, 0, 7, 1, 1);
+        grid.setMargin(settingsButton, new Insets(5, 50, 5, 50));
+
+        Label authorLabel = new Label("Alexandre Ladrière - 2019");
+        authorLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        authorLabel.setAlignment(Pos.CENTER);
+        authorLabel.setTextAlignment(TextAlignment.CENTER);
+        authorLabel.setId("author_label");
+        grid.add(authorLabel, 0, 9);
+
+        Scene scene = new Scene(grid, Constantes.WINDOW_WIDTH.getValue(), Constantes.WINDOW_HEIGHT.getValue());
+        scene.getStylesheets().add("file:"+Paths.CSS_THEME_PATH.getPath());
+        return scene;
     }
 
     private Scene CreateWelcomeScene() throws FileNotFoundException {
@@ -70,7 +125,7 @@ public class Gui extends Application {
         createdBy.setId("created_by");
         grid.add(createdBy, 0, 9);
 
-        Image appLogo = new Image(new FileInputStream(Paths.ALBUM_ICON.getPath()), 143, 143, false, false);
+        Image appLogo = new Image(new FileInputStream(Paths.ALBUM_ICON.getPath()), 143, 143, true, true);
         Label appLogoLabel = new Label();
         appLogoLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         appLogoLabel.setGraphic(new ImageView(appLogo));
