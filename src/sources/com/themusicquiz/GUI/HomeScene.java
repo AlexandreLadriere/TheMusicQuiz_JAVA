@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 13:44:34 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 15:40:19
+ * @Last Modified time: 2019-07-26 18:05:30
  */
 
 
@@ -72,6 +72,7 @@ public class HomeScene extends SceneApp {
         this.authorLabel.setTextAlignment(TextAlignment.CENTER);
         this.authorLabel.setId("author_label");
         this.grid.add(authorLabel, 0, 9);
+        this.grid.setMargin(authorLabel, new Insets(30, 0, 0, 0));
         
         this.getStylesheets().add("file:"+Paths.CSS_THEME_PATH.getPath());
     }

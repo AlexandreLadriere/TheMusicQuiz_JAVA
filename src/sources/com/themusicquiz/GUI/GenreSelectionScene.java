@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 14:42:43 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 16:23:05
+ * @Last Modified time: 2019-07-26 18:05:54
  */
 package com.themusicquiz.GUI;
 
@@ -61,21 +61,21 @@ public class GenreSelectionScene extends SceneApp {
         this.rockButton = new Button("Rock");
         this.rockButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.rockButton.setAlignment(Pos.CENTER);
-        this.rockButton.setId("not_available_button");
+        this.rockButton.setDisable(true);
         this.grid.add(rockButton, 0, 4, 1, 2);
         this.grid.setMargin(rockButton, new Insets(100, 50, 50, 50));
 
         this.electroButton = new Button("Electro");
         this.electroButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.electroButton.setAlignment(Pos.CENTER);
-        this.electroButton.setId("not_available_button");
+        this.electroButton.setDisable(true);
         this.grid.add(electroButton, 0, 5, 1, 2);
         this.grid.setMargin(electroButton, new Insets(150, 50, 50, 50));
 
         this.popButton = new Button("Pop");
         this.popButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.popButton.setAlignment(Pos.CENTER);
-        this.popButton.setId("not_available_button");
+        this.popButton.setDisable(true);
         this.grid.add(popButton, 0, 6, 1, 2);
         this.grid.setMargin(popButton, new Insets(200, 50, 50, 50));
 
@@ -85,6 +85,7 @@ public class GenreSelectionScene extends SceneApp {
         this.authorLabel.setTextAlignment(TextAlignment.CENTER);
         this.authorLabel.setId("author_label");
         this.grid.add(authorLabel, 0, 9);
+        this.grid.setMargin(authorLabel, new Insets(30, 0, 0, 0));
 
         this.getStylesheets().add("file:"+Paths.CSS_THEME_PATH.getPath());
     }

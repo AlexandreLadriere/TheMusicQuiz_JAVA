@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 16:19:46
+ * @Last Modified time: 2019-07-26 17:30:36
  */
 package com.themusicquiz.GUI;
 
@@ -39,6 +39,7 @@ public class Gui extends Application {
     private ModeSelectionScene modeSelectionScene;
     private GenreSelectionScene genreSelectionScene;
     private HiphopLanguageScene hiphopLanguageScene;
+    private QuestionScene questionScene;
 
     @Override
     public void start(Stage primaryStage) {
@@ -54,6 +55,8 @@ public class Gui extends Application {
             addButtonsToController(genreSelectionScene);
             hiphopLanguageScene = new HiphopLanguageScene();
             addButtonsToController(hiphopLanguageScene);
+            questionScene = new QuestionScene();
+            addButtonsToController(questionScene);
             
             window.setScene(welcomeScene);
             window.setTitle("The Music Quiz");
@@ -94,6 +97,14 @@ public class Gui extends Application {
     }
 
     public void addButtonsToController(HiphopLanguageScene scene) {
+        NodeGetter nodeGetter = new NodeGetter();
+        ArrayList<Button> buttonArray = nodeGetter.getAllButtons(scene.getGrid());
+        for(Button button : buttonArray) {
+            button.setOnAction(new Controller(this));
+        }
+    }
+
+    public void addButtonsToController(QuestionScene scene) {
         NodeGetter nodeGetter = new NodeGetter();
         ArrayList<Button> buttonArray = nodeGetter.getAllButtons(scene.getGrid());
         for(Button button : buttonArray) {
@@ -147,5 +158,13 @@ public class Gui extends Application {
 
     public void setHiphopLanguageScene(HiphopLanguageScene hiphopLanguageScene) {
         this.hiphopLanguageScene = hiphopLanguageScene;
+    }
+
+    public QuestionScene getQuestionScene() {
+        return questionScene;
+    }
+
+    public void setQuestionScene(QuestionScene questionScene) {
+        this.questionScene = questionScene;
     }
 }

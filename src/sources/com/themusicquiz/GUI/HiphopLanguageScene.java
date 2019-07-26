@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 15:05:54 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 16:15:59
+ * @Last Modified time: 2019-07-26 18:05:45
  */
 
 package com.themusicquiz.GUI;
@@ -68,14 +68,14 @@ public class HiphopLanguageScene extends SceneApp {
         this.DEhiphopButton = new Button("German Hip-hop");
         this.DEhiphopButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.DEhiphopButton.setAlignment(Pos.CENTER);
-        this.DEhiphopButton.setId("not_available_button");
+        this.DEhiphopButton.setDisable(true);
         this.grid.add(DEhiphopButton, 0, 5, 1, 2);
         this.grid.setMargin(DEhiphopButton, new Insets(150, 50, 50, 50));
 
         this.IThiphopButton = new Button("Italian Hip-hop");
         this.IThiphopButton.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.IThiphopButton.setAlignment(Pos.CENTER);
-        this.IThiphopButton.setId("not_available_button");
+        this.IThiphopButton.setDisable(true);
         this.grid.add(IThiphopButton, 0, 6, 1, 2);
         this.grid.setMargin(IThiphopButton, new Insets(200, 50, 50, 50));
 
@@ -85,6 +85,7 @@ public class HiphopLanguageScene extends SceneApp {
         this.authorLabel.setTextAlignment(TextAlignment.CENTER);
         this.authorLabel.setId("author_label");
         this.grid.add(authorLabel, 0, 9);
+        this.grid.setMargin(authorLabel, new Insets(30, 0, 0, 0));
 
         this.getStylesheets().add("file:"+Paths.CSS_THEME_PATH.getPath());
     }

@@ -17,20 +17,20 @@ In addition to these question types, you have the option __Discover__: question 
 The database is build from different albums charts you can find on the internet (like on [Rate Your Music]) thanks to a python script. This python script is also scraping information from [Wikipedia], and translating them in english if needed thanks to [Deepl].
 
 ## Test
-First, you need to compile all the files thanks to the compile.sh file:
+First, you need to compile all the files thanks to the [compile.sh] file:
 ```sh
 $ sh compile.sh
 ```
 
-To run the application, you just have to run the run.sh file:
+To run the application, you just have to run the [run.sh] file:
 ```sh
 $ sh run.sh
 ```
 
 ## Developed with
-  - openjdk 11.0.3 2019-04-16
-  - OpenJDK Runtime Environment (build 11.0.3+7-Ubuntu-1ubuntu218.04.1)
-  - OpenJDK 64-Bit Server VM (build 11.0.3+7-Ubuntu-1ubuntu218.04.1, mixed mode, sharing)
+  - java 12.0.2 2019-07-16
+  - Java(TM) SE Runtime Environment (build 12.0.2+10)
+  - Java HotSpot(TM) 64-Bit Server VM (build 12.0.2+10, mixed mode, sharing)
 
 ## Todo
   - Developing a GUI with javaFX
@@ -49,8 +49,8 @@ tbd
 
 
 
-   [compile.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/tree/master/src/sources>
-   [run.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/src/run.sh>
+   [compile.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/compile.sh>
+   [run.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/run.sh>
    [Rate Your Music]: <https://rateyourmusic.com/>
    [Wikipedia]: <https://www.wikipedia.org/>
    [Deepl]: <https://www.deepl.com/translator>

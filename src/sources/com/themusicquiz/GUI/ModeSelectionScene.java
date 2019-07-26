@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 11:24:28 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 16:15:39
+ * @Last Modified time: 2019-07-26 18:05:08
  */
 package com.themusicquiz.GUI;
 
@@ -119,6 +119,7 @@ public class ModeSelectionScene extends SceneApp {
         this.authorLabel.setTextAlignment(TextAlignment.CENTER);
         this.authorLabel.setId("author_label");
         this.grid.add(authorLabel, 0, 9, 2, 1);
+        this.grid.setMargin(authorLabel, new Insets(30, 0, 0, 0));
         
         this.getStylesheets().add("file:"+Paths.CSS_THEME_PATH.getPath());
     }
