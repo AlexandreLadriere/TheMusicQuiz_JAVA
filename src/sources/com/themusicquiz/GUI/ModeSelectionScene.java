@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 11:24:28 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 14:07:46
+ * @Last Modified time: 2019-07-26 16:15:39
  */
 package com.themusicquiz.GUI;
 
@@ -145,5 +145,9 @@ public class ModeSelectionScene extends SceneApp {
 
     public Button getDiscoverButton() {
         return discoverButton;
+    }
+
+    public GridPane getGrid() {
+        return grid;
     }
 }

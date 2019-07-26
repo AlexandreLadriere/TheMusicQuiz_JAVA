@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 13:44:34 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 14:07:56
+ * @Last Modified time: 2019-07-26 15:40:19
  */
 
 
@@ -82,5 +82,9 @@ public class HomeScene extends SceneApp {
 
     public Button getSettingsButton() {
         return settingsButton;
+    }
+
+    public GridPane getGrid() {
+        return grid;
     }
 }
