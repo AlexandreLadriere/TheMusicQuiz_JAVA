@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 17:30:36
+ * @Last Modified time: 2019-07-28 11:17:35
  */
 package com.themusicquiz.GUI;
 
@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 import com.themusicquiz.enumerations.Constantes;
 import com.themusicquiz.enumerations.Paths;
+import com.themusicquiz.composants.Quiz;
 
 public class Gui extends Application {
 
@@ -40,10 +41,12 @@ public class Gui extends Application {
     private GenreSelectionScene genreSelectionScene;
     private HiphopLanguageScene hiphopLanguageScene;
     private QuestionScene questionScene;
+    private Quiz quiz;
 
     @Override
     public void start(Stage primaryStage) {
         window = primaryStage;
+        quiz = new Quiz();
 
         try {
             welcomeScene = new WelcomeScene();
@@ -166,5 +169,13 @@ public class Gui extends Application {
 
     public void setQuestionScene(QuestionScene questionScene) {
         this.questionScene = questionScene;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 }
