@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-28 10:01:38 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-28 11:18:46
+ * @Last Modified time: 2019-07-28 11:49:47
  */
 package com.themusicquiz.composants;
 
@@ -17,11 +17,17 @@ public class Quiz {
     private String DBPath;
     private QuestionType questionType;
     private List<Item> itemList;
-    private FileHandler fileHandler = new FileHandler();
-    private RandGenerator rand = new RandGenerator();
+    private FileHandler fileHandler;
+    private RandGenerator rand;
     private QuestionSerie questionSerie;
+    private Question currentQuestion;
+    private int questionCpt;
+
 
     public Quiz() {
+        this.fileHandler = new FileHandler();
+        this.rand = new RandGenerator();
+        this.questionCpt = 0;
         this.DBPath = Paths.DBPath.getPath()+"/hiphop/"+MusicGenres.values()[0].getMusicGenreLanguage_name()+"//"+MusicGenres.values()[0].getMusicGenreLanguage_name()+".txt";
         this.questionType = QuestionType.UNDEFINED;
     }
@@ -66,5 +72,21 @@ public class Quiz {
 
     public QuestionSerie getQuestionSerie() {
         return questionSerie;
+    }
+
+    public int getQuestionCpt() {
+        return questionCpt;
+    }
+
+    public void setQuestionCpt(int questionCpt) {
+        this.questionCpt = questionCpt;
+    }
+
+    public Question getCurrentQuestion() {
+        return currentQuestion;
+    }
+
+    public void setCurrentQuestion(Question currentQuestion) {
+        this.currentQuestion = currentQuestion;
     }
 }

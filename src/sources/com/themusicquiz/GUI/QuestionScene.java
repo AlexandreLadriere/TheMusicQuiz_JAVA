@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 17:10:24 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 18:32:56
+ * @Last Modified time: 2019-07-28 17:18:50
  */
 
 package com.themusicquiz.GUI;
@@ -49,7 +49,7 @@ public class QuestionScene extends SceneApp {
         //this.grid.setGridLinesVisible(true);
         super.setRoot(grid);
 
-        this.scoreLabel = new Label("Score: 77");
+        this.scoreLabel = new Label("Score: 0");
         this.scoreLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.scoreLabel.setAlignment(Pos.CENTER);
         this.scoreLabel.setTextAlignment(TextAlignment.CENTER);
@@ -65,7 +65,7 @@ public class QuestionScene extends SceneApp {
         this.grid.add(appLogoLabel, 1, 0, 1, 1);
         this.grid.setMargin(appLogoLabel, new Insets(10, 10, 50, 10));
 
-        this.questionLabel = new Label("Who released “A7” in 2015 ? text text text text text text text text text");
+        this.questionLabel = new Label("Question");
         this.questionLabel.setWrapText(true);
         this.questionLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.questionLabel.setAlignment(Pos.CENTER);
@@ -82,28 +82,28 @@ public class QuestionScene extends SceneApp {
         this.grid.add(coverLabel, 0, 3, 3, 1);
         this.grid.setMargin(coverLabel, new Insets(10, 0, 45, 0));
 
-        this.proposition1 = new Button("Booba");
+        this.proposition1 = new Button("Proposition 1");
         this.proposition1.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.proposition1.setAlignment(Pos.CENTER);
         this.proposition1.setId("proposition_button");
         this.grid.add(proposition1, 0, 4, 3, 2);
         this.grid.setMargin(proposition1, new Insets(35, 38, 45, 38));
 
-        this.proposition2 = new Button("Sefyu");
+        this.proposition2 = new Button("Proposition 2");
         this.proposition2.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.proposition2.setAlignment(Pos.CENTER);
         this.proposition2.setId("proposition_button");
         this.grid.add(proposition2, 0, 5, 3, 2);
         this.grid.setMargin(proposition2, new Insets(35, 38, 45, 38));
 
-        this.proposition3 = new Button("Sch");
+        this.proposition3 = new Button("Proposition 3");
         this.proposition3.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.proposition3.setAlignment(Pos.CENTER);
         this.proposition3.setId("proposition_button");
         this.grid.add(proposition3, 0, 6, 3, 2);
         this.grid.setMargin(proposition3, new Insets(35, 38, 45, 38));
 
-        this.proposition4 = new Button("Niro");
+        this.proposition4 = new Button("Proposition 4");
         this.proposition4.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.proposition4.setAlignment(Pos.CENTER);
         this.proposition4.setId("proposition_button");
@@ -148,6 +148,43 @@ public class QuestionScene extends SceneApp {
         this.grid.setMargin(authorLabel, new Insets(30, 0, 0, 0));
 
         this.getStylesheets().add("file:"+Paths.CSS_THEME_PATH.getPath());
+    }
+
+    public void colorPropositions() {
+        this.proposition1.setId("proposition_button");
+        this.proposition2.setId("proposition_button");
+        this.proposition3.setId("proposition_button");
+        this.proposition4.setId("proposition_button");
+    }
+
+    public void colorCorrectAnswer(String answer) {
+        if(proposition1.getText().equals(answer)) {
+            this.proposition1.setId("correct_answer");
+        }
+        else if(proposition2.getText().equals(answer)) {
+            this.proposition2.setId("correct_answer");
+        }
+        else if(proposition3.getText().equals(answer)) {
+            this.proposition3.setId("correct_answer");
+        }
+        else if(proposition4.getText().equals(answer)) {
+            this.proposition4.setId("correct_answer");
+        }
+    }
+
+    public void colorWrongAnswer(String answer) {
+        if(proposition1.getText().equals(answer)) {
+            this.proposition1.setId("wrong_answer");
+        }
+        else if(proposition2.getText().equals(answer)) {
+            this.proposition2.setId("wrong_answer");
+        }
+        else if(proposition3.getText().equals(answer)) {
+            this.proposition3.setId("wrong_answer");
+        }
+        else if(proposition4.getText().equals(answer)) {
+            this.proposition4.setId("wrong_answer");
+        }
     }
 
     public GridPane getGrid() {

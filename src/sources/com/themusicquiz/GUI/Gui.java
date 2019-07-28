@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-28 11:17:35
+ * @Last Modified time: 2019-07-28 17:19:51
  */
 package com.themusicquiz.GUI;
 
@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,7 +23,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-
+import java.lang.System;
 import javafx.scene.Node;
 import java.util.ArrayList;
 
@@ -42,6 +41,9 @@ public class Gui extends Application {
     private HiphopLanguageScene hiphopLanguageScene;
     private QuestionScene questionScene;
     private Quiz quiz;
+
+    private long startTime = 0L;
+    private long stopTime = 0L;
 
     @Override
     public void start(Stage primaryStage) {
@@ -112,6 +114,42 @@ public class Gui extends Application {
         ArrayList<Button> buttonArray = nodeGetter.getAllButtons(scene.getGrid());
         for(Button button : buttonArray) {
             button.setOnAction(new Controller(this));
+        }
+    }
+
+    public void updateQuestionScene() throws FileNotFoundException {
+        if(quiz.getQuestionCpt()<Constantes.NUMBER_OF_QUESTIONS.getValue()) {
+            questionScene.colorPropositions();
+            startTime = System.currentTimeMillis();
+            this.quiz.setCurrentQuestion(quiz.getQuestionSerie().getQuestionSerieQuestionList().get(quiz.getQuestionCpt()));
+            this.questionScene.getQuestionLabel().setText(quiz.getCurrentQuestion().askQuestion());
+            Image currentCover = new Image(new FileInputStream(quiz.getCurrentQuestion().getQuestionItem().getItemCoverPath()));
+            this.questionScene.getCoverLabel().setGraphic(new ImageView(currentCover));
+            this.questionScene.getProposition1().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[0]));
+            this.questionScene.getProposition2().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[1]));
+            this.questionScene.getProposition3().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[2]));
+            this.questionScene.getProposition4().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[3]));
+            this.questionScene.getScoreLabel().setText("Score: "+quiz.getQuestionSerie().getQuestionSerieTotalScore());
+            this.quiz.setQuestionCpt(quiz.getQuestionCpt()+1);
+        }
+        else {
+            this.quiz.setQuestionCpt(0);
+            this.window.setScene(homeScene);
+        }
+    }
+
+    public void checkAnswerGUI(String answer) {
+        stopTime = System.currentTimeMillis();
+        quiz.getCurrentQuestion().setQuestionTime(stopTime-startTime);
+        this.quiz.getCurrentQuestion().checkAnswer(answer);
+        if(quiz.getCurrentQuestion().getQuestionIsCorrect()) {
+            System.out.println("CORRECT");
+            questionScene.colorCorrectAnswer(answer);
+        }
+        else {
+            questionScene.colorWrongAnswer(answer);
+            questionScene.colorCorrectAnswer(quiz.getCurrentQuestion().getQuestionCorrectAnswer());
+            System.out.println("WRONG");
         }
     }
 

@@ -42,55 +42,71 @@ public class Controller implements EventHandler<ActionEvent> {
             else if(gui.getModeSelectionScene().getWhoButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.WHO);
                 gui.getQuiz().iniQuestionList();
+                gui.updateQuestionScene();
                 gui.getWindow().setScene(gui.getQuestionScene());
             }
             else if(gui.getModeSelectionScene().getWhenButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.WHEN);
                 gui.getQuiz().iniQuestionList();
+                gui.updateQuestionScene();
                 gui.getWindow().setScene(gui.getQuestionScene());
             }
             else if(gui.getModeSelectionScene().getByCoverButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.COVER);
                 gui.getQuiz().iniQuestionList();
+                gui.updateQuestionScene();
                 gui.getWindow().setScene(gui.getQuestionScene());
             }
             else if(gui.getModeSelectionScene().getWhichOneButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.WHICH);
                 gui.getQuiz().iniQuestionList();
+                gui.updateQuestionScene();
                 gui.getWindow().setScene(gui.getQuestionScene());
             }
             else if(gui.getModeSelectionScene().getRandomButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.RANDOM);
                 gui.getQuiz().iniQuestionList();
+                gui.updateQuestionScene();
                 gui.getWindow().setScene(gui.getQuestionScene());
             }
             else if(gui.getModeSelectionScene().getDiscoverButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.DISCOVER);
                 gui.getQuiz().iniQuestionList();
-                gui.getWindow().setScene(gui.getQuestionScene());
+                //gui.getWindow().setScene(gui.getQuestionScene());
             }
             else if(gui.getQuestionScene().getProposition1().equals(cmd)) {
+                gui.checkAnswerGUI(gui.getQuestionScene().getProposition1().getText());
                 enableBottomButton();
                 disablePropositions();
             }
             else if(gui.getQuestionScene().getProposition2().equals(cmd)) {
+                gui.checkAnswerGUI(gui.getQuestionScene().getProposition2().getText());
                 enableBottomButton();
                 disablePropositions();
             }
             else if(gui.getQuestionScene().getProposition3().equals(cmd)) {
+                gui.checkAnswerGUI(gui.getQuestionScene().getProposition3().getText());
                 enableBottomButton();
                 disablePropositions();
             }
             else if(gui.getQuestionScene().getProposition4().equals(cmd)) {
+                gui.checkAnswerGUI(gui.getQuestionScene().getProposition4().getText());
                 enableBottomButton();
                 disablePropositions();
+            }
+            else if(gui.getQuestionScene().getOpenInBrowserButton().equals(cmd)) {
+            }
+            else if(gui.getQuestionScene().getInfoButton().equals(cmd)) {
+            }
+            else if(gui.getQuestionScene().getNextQuestionButton().equals(cmd)) {
+                //test
+                enablePropositions();
+                gui.updateQuestionScene();
             }
         }
         catch(IOException e) {
             e.printStackTrace();
         }
-        System.out.println(gui.getQuiz().getQuestionType());
-        System.out.println(gui.getQuiz().getDBPath());
     }
 
     private void disableBottomButton() {
@@ -110,5 +126,12 @@ public class Controller implements EventHandler<ActionEvent> {
         gui.getQuestionScene().getProposition2().setDisable(true);
         gui.getQuestionScene().getProposition3().setDisable(true);
         gui.getQuestionScene().getProposition4().setDisable(true);
+    }
+
+    private void enablePropositions() {
+        gui.getQuestionScene().getProposition1().setDisable(false);
+        gui.getQuestionScene().getProposition2().setDisable(false);
+        gui.getQuestionScene().getProposition3().setDisable(false);
+        gui.getQuestionScene().getProposition4().setDisable(false);
     }
 }
