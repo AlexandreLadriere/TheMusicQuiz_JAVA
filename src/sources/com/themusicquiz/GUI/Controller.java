@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 
 import com.themusicquiz.enumerations.MusicGenres;
 import com.themusicquiz.enumerations.QuestionType;
+import com.themusicquiz.composants.URLBrowser;
 
 public class Controller implements EventHandler<ActionEvent> {
     Gui gui;
@@ -95,12 +96,14 @@ public class Controller implements EventHandler<ActionEvent> {
                 disablePropositions();
             }
             else if(gui.getQuestionScene().getOpenInBrowserButton().equals(cmd)) {
+                URLBrowser urlBrowser = new URLBrowser();
+                urlBrowser.openWebPage(gui.getQuiz().getCurrentQuestion().getQuestionItem().getItemWikiLink());
             }
             else if(gui.getQuestionScene().getInfoButton().equals(cmd)) {
             }
             else if(gui.getQuestionScene().getNextQuestionButton().equals(cmd)) {
-                //test
                 enablePropositions();
+                disableBottomButton();
                 gui.updateQuestionScene();
             }
         }

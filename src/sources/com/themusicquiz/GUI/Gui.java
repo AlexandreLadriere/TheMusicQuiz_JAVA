@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-28 17:19:51
+ * @Last Modified time: 2019-07-28 17:31:55
  */
 package com.themusicquiz.GUI;
 
@@ -143,13 +143,11 @@ public class Gui extends Application {
         quiz.getCurrentQuestion().setQuestionTime(stopTime-startTime);
         this.quiz.getCurrentQuestion().checkAnswer(answer);
         if(quiz.getCurrentQuestion().getQuestionIsCorrect()) {
-            System.out.println("CORRECT");
             questionScene.colorCorrectAnswer(answer);
         }
         else {
             questionScene.colorWrongAnswer(answer);
             questionScene.colorCorrectAnswer(quiz.getCurrentQuestion().getQuestionCorrectAnswer());
-            System.out.println("WRONG");
         }
     }
 

@@ -110,6 +110,7 @@ public class ModeSelectionScene extends SceneApp {
         this.discoverButton.setAlignment(Pos.CENTER);
         this.discoverButton.setGraphic(new ImageView(discoverLogo));
         this.discoverButton.setId("mode_button");
+        this.discoverButton.setDisable(true);
         this.grid.add(discoverButton, 1, 7, 1, 2);
         this.grid.setMargin(discoverButton, new Insets(15, 25, 15, 25));
 
