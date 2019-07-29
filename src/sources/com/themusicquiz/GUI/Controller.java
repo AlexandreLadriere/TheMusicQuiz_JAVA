@@ -106,6 +106,14 @@ public class Controller implements EventHandler<ActionEvent> {
                 disableBottomButton();
                 gui.updateQuestionScene();
             }
+            else if(gui.getResultsScene().getHomeButton().equals(cmd)) {
+                gui.getWindow().setScene(gui.getHomeScene());
+            }
+            else if(gui.getResultsScene().getReplayButton().equals(cmd)) {
+                gui.getQuiz().iniQuestionList();
+                gui.updateQuestionScene();
+                gui.getWindow().setScene(gui.getQuestionScene());
+            }
         }
         catch(IOException e) {
             e.printStackTrace();

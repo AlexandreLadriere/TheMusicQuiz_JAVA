@@ -31,6 +31,30 @@
     -fx-scale-x: 0.95;
 }
 
+#score_1 {
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,4,4 );
+    -fx-background-color: rgb(52, 153, 98);
+}
+
+#score_2 {
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,4,4 );
+    -fx-background-color: rgb(122, 226, 62);
+}
+
+#score_3 {
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,4,4 );
+    -fx-background-color: rgb(240, 152, 37);
+}
+
+#score_4 {
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.25) , 0,0,4,4 );
+    -fx-background-color: rgb(223, 35, 35);
+}
+
 #correct_answer {
     -fx-background-color: rgb(52, 153, 98);
 }

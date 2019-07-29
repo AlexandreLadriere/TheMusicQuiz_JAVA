@@ -33,6 +33,7 @@ public class Quiz {
     }
 
     public void iniQuestionList() throws IOException {
+        this.questionCpt = 0;
         if(this.questionType.equals(QuestionType.DISCOVER)) {
             try {
                 this.itemList = this.fileHandler.GetItemListFromDB(this.DBPath);

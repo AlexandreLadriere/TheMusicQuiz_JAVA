@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-28 17:31:55
+ * @Last Modified time: 2019-07-29 11:40:43
  */
 package com.themusicquiz.GUI;
 
@@ -40,6 +40,7 @@ public class Gui extends Application {
     private GenreSelectionScene genreSelectionScene;
     private HiphopLanguageScene hiphopLanguageScene;
     private QuestionScene questionScene;
+    private ResultsScene resultsScene;
     private Quiz quiz;
 
     private long startTime = 0L;
@@ -62,6 +63,8 @@ public class Gui extends Application {
             addButtonsToController(hiphopLanguageScene);
             questionScene = new QuestionScene();
             addButtonsToController(questionScene);
+            resultsScene = new ResultsScene();
+            addButtonsToController(resultsScene);
             
             window.setScene(welcomeScene);
             window.setTitle("The Music Quiz");
@@ -117,6 +120,14 @@ public class Gui extends Application {
         }
     }
 
+    public void addButtonsToController(ResultsScene scene) {
+        NodeGetter nodeGetter = new NodeGetter();
+        ArrayList<Button> buttonArray = nodeGetter.getAllButtons(scene.getGrid());
+        for(Button button : buttonArray) {
+            button.setOnAction(new Controller(this));
+        }
+    }
+
     public void updateQuestionScene() throws FileNotFoundException {
         if(quiz.getQuestionCpt()<Constantes.NUMBER_OF_QUESTIONS.getValue()) {
             questionScene.colorPropositions();
@@ -134,8 +145,63 @@ public class Gui extends Application {
         }
         else {
             this.quiz.setQuestionCpt(0);
-            this.window.setScene(homeScene);
+            this.updateResultsScene();
         }
+    }
+
+    public void updateResultsScene() {
+        int totalScore = this.quiz.getQuestionSerie().getQuestionSerieTotalScore();
+        int totalQuestionAnswered = this.quiz.getQuestionSerie().getQuestionSerieCorrectAnswerNumber();
+        float averageTime = this.quiz.getQuestionSerie().getQuestionSerieAverageTime()/1000F;
+    
+        this.resultsScene.getScoreLabel().setText(String.valueOf(totalScore));
+        this.resultsScene.getNumberQuestionLabel().setText(totalQuestionAnswered+"/"+Constantes.NUMBER_OF_QUESTIONS.getValue());
+        this.resultsScene.getTimeLabel().setText(averageTime+" sec");
+        //totalScore
+        if(totalScore<(Constantes.NUMBER_OF_QUESTIONS.getValue()/4)*30) {
+            this.getResultsScene().getScoreLabel().setId("score_4");
+            this.getResultsScene().getGenreLabel().setText("You suck !");
+        }
+        else if(totalScore<(Constantes.NUMBER_OF_QUESTIONS.getValue()/2)*30 && totalScore>=(Constantes.NUMBER_OF_QUESTIONS.getValue()/4)*30) {
+            this.getResultsScene().getScoreLabel().setId("score_3");
+            this.getResultsScene().getGenreLabel().setText("You suck, but it could be worse...");
+        }
+        else if(totalScore<((Constantes.NUMBER_OF_QUESTIONS.getValue()/2)+(Constantes.NUMBER_OF_QUESTIONS.getValue()/4))*30 && totalScore>=(Constantes.NUMBER_OF_QUESTIONS.getValue()/2)*30) {
+            this.getResultsScene().getScoreLabel().setId("score_2");
+            this.getResultsScene().getGenreLabel().setText("Not bad, but not good enough...");
+        }
+        else {
+            this.getResultsScene().getScoreLabel().setId("score_1");
+            this.getResultsScene().getGenreLabel().setText("I am almost impressed !");
+        }
+        //totalQuestionAnswered
+        if(totalQuestionAnswered<(Constantes.NUMBER_OF_QUESTIONS.getValue()/4)) {
+            this.getResultsScene().getNumberQuestionLabel().setId("score_4");
+        }
+        else if(totalQuestionAnswered<(Constantes.NUMBER_OF_QUESTIONS.getValue()/2) && totalQuestionAnswered>=(Constantes.NUMBER_OF_QUESTIONS.getValue()/4)) {
+            this.getResultsScene().getNumberQuestionLabel().setId("score_3");
+        }
+        else if(totalQuestionAnswered<((Constantes.NUMBER_OF_QUESTIONS.getValue()/2)+(Constantes.NUMBER_OF_QUESTIONS.getValue()/4)) && totalQuestionAnswered>=(Constantes.NUMBER_OF_QUESTIONS.getValue()/2)) {
+            this.getResultsScene().getNumberQuestionLabel().setId("score_2");
+        }
+        else {
+            this.getResultsScene().getNumberQuestionLabel().setId("score_1");
+        }
+        //averageTime
+        if(averageTime>6F) {
+            this.getResultsScene().getTimeLabel().setId("score_4");
+        }
+        else if(averageTime<=6F && averageTime>4F) {
+            this.getResultsScene().getTimeLabel().setId("score_3");
+        }
+        else if(averageTime<=4F && averageTime>2F) {
+            this.getResultsScene().getTimeLabel().setId("score_2");
+        }
+        else {
+            this.getResultsScene().getTimeLabel().setId("score_1");
+        }
+
+        this.window.setScene(resultsScene);
     }
 
     public void checkAnswerGUI(String answer) {
@@ -213,5 +279,13 @@ public class Gui extends Application {
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
+    }
+
+    public ResultsScene getResultsScene() {
+        return resultsScene;
+    }
+
+    public void setResultsScene(ResultsScene resultsScene) {
+        this.resultsScene = resultsScene;
     }
 }

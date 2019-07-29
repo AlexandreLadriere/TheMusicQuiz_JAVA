@@ -25,6 +25,7 @@ javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/
 javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/GenreSelectionScene.java
 javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/HiphopLanguageScene.java
 javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/QuestionScene.java
+javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/ResultsScene.java
 javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/Gui.java
 javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/Controller.java
 javac --module-path $PATH_TO_FX --add-modules javafx.controls -d ../classes com/themusicquiz/GUI/Main.java
