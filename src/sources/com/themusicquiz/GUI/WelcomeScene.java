@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-26 14:04:20 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-26 14:11:55
+ * @Last Modified time: 2019-07-29 19:52:07
  */
 package com.themusicquiz.GUI;
 
@@ -39,7 +39,7 @@ public class WelcomeScene extends SceneApp {
         this.mainTitle.setId("main_title");
         this.grid.add(mainTitle, 0, 1, 1, 2);
 
-        this.createdBy = new Label("Created by Alexandre Ladrière\n2019");
+        this.createdBy = new Label("Created by Alexandre Ladrière\n2019 - version 1.0");
         this.createdBy.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.createdBy.setAlignment(Pos.CENTER);
         this.createdBy.setTextAlignment(TextAlignment.CENTER);

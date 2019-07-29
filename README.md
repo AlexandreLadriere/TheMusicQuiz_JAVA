@@ -16,8 +16,13 @@ In addition to these question types, you have the option __Discover__: question 
 ## Database
 The database is build from different albums charts you can find on the internet (like on [Rate Your Music]) thanks to a python script. This python script is also scraping information from [Wikipedia], and translating them in english if needed thanks to [Deepl].
 
-## Test
-First, you need to compile all the files thanks to the [compile.sh] file:
+## Test (Linux)
+First, install the _Nunito_ font pack with the [instal_fonts.sh] file if you don't already have it (it is not mandatory):
+```sh
+$ sh instal_fonts.sh
+```
+
+Then, you need to compile all the files thanks to the [compile.sh] file:
 ```sh
 $ sh compile.sh
 ```
@@ -28,27 +33,29 @@ $ sh run.sh
 ```
 
 ## Developed with
+  - Ubuntu 18.04.2 LTS
   - java 12.0.2 2019-07-16
   - Java(TM) SE Runtime Environment (build 12.0.2+10)
   - Java HotSpot(TM) 64-Bit Server VM (build 12.0.2+10, mixed mode, sharing)
 
 ## Todo
-  - Developing a GUI with javaFX
-  - Finding an appropriate license
-  - Enhancing database (espacially summaries files)
-  - Creating a logo
+  - Enhancing database
   - Adding a multiplayer option
+  - Adding _Discover_ mode
+  - Adding _Settings_ possibilities
+  - Adding adaptative background/buttons color changes according to the cover color
 
 Feel free to add ideas and to contribute :metal:
 
 ## License
-tbd
+This project is licensed under the MIT License - see the [LICENSE.md] file for details
 
 
 
 
 
-
+   [LICENSE.md]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/LICENSE.md>
+   [instal_fonts.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/instal_fonts.sh>
    [compile.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/compile.sh>
    [run.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/run.sh>
    [Rate Your Music]: <https://rateyourmusic.com/>

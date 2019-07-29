@@ -21,6 +21,7 @@ public class Quiz {
     private RandGenerator rand;
     private QuestionSerie questionSerie;
     private Question currentQuestion;
+    private Item currentItemDiscover;
     private int questionCpt;
 
 
@@ -89,5 +90,17 @@ public class Quiz {
 
     public void setCurrentQuestion(Question currentQuestion) {
         this.currentQuestion = currentQuestion;
+    }
+
+    public FileHandler getFileHandler() {
+        return fileHandler;
+    }
+
+    public Item getCurrentItemDiscover() {
+        return currentItemDiscover;
+    }
+
+    public void setCurrentItemDiscover(Item currentItemDiscover) {
+        this.currentItemDiscover = currentItemDiscover;
     }
 }

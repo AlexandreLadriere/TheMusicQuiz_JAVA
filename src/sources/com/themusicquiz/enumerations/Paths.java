@@ -20,7 +20,8 @@ public enum Paths {
     EVENT_ICON("../../resources/icons/baseline-event-android-white/res/drawable-xxxhdpi/baseline_event_white_48.png"),
     HELP_ICON("../../resources/icons/baseline-help-android-white/res/drawable-xxxhdpi/baseline_help_white_48.png"),
     IMAGE_ICON("../../resources/icons/baseline-image-android-white/res/drawable-xxxhdpi/baseline_image_white_48.png"),
-    PERSON_ICON("../../resources/icons/baseline-person-android-white/res/drawable-xxxhdpi/baseline_person_white_48.png");
+    PERSON_ICON("../../resources/icons/baseline-person-android-white/res/drawable-xxxhdpi/baseline_person_white_48.png"),
+    CLOSE_ICON("../../resources/icons/baseline-close-android-white/res/drawable-xxxhdpi/baseline_close_white_48.png");
 
     protected String path = "";
 

@@ -73,7 +73,7 @@ public class Controller implements EventHandler<ActionEvent> {
             else if(gui.getModeSelectionScene().getDiscoverButton().equals(cmd)) {
                 gui.getQuiz().setQuestionType(QuestionType.DISCOVER);
                 gui.getQuiz().iniQuestionList();
-                //gui.getWindow().setScene(gui.getQuestionScene());
+                gui.getWindow().setScene(gui.getDiscoverScene());
             }
             else if(gui.getQuestionScene().getProposition1().equals(cmd)) {
                 gui.checkAnswerGUI(gui.getQuestionScene().getProposition1().getText());
@@ -128,7 +128,7 @@ public class Controller implements EventHandler<ActionEvent> {
 
     private void enableBottomButton() {
         gui.getQuestionScene().getOpenInBrowserButton().setDisable(false);
-        gui.getQuestionScene().getInfoButton().setDisable(false);
+        //gui.getQuestionScene().getInfoButton().setDisable(false);
         gui.getQuestionScene().getNextQuestionButton().setDisable(false);
     }
 

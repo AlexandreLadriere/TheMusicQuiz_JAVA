@@ -2,7 +2,7 @@
  * @Author: Alexandre Ladrière 
  * @Date: 2019-07-25 11:52:11 
  * @Last Modified by: Alexandre Ladrière
- * @Last Modified time: 2019-07-29 11:40:43
+ * @Last Modified time: 2019-07-29 18:38:13
  */
 package com.themusicquiz.GUI;
 
@@ -41,6 +41,7 @@ public class Gui extends Application {
     private HiphopLanguageScene hiphopLanguageScene;
     private QuestionScene questionScene;
     private ResultsScene resultsScene;
+    private DiscoverScene discoverScene;
     private Quiz quiz;
 
     private long startTime = 0L;
@@ -65,10 +66,12 @@ public class Gui extends Application {
             addButtonsToController(questionScene);
             resultsScene = new ResultsScene();
             addButtonsToController(resultsScene);
+            discoverScene = new DiscoverScene();
+            addButtonsToController(discoverScene);
             
             window.setScene(welcomeScene);
             window.setTitle("The Music Quiz");
-            //pause between welcom scene and homeScene
+            //pause between welcome scene and homeScene
             PauseTransition delay = new PauseTransition(new Duration((double) 2000));
             delay.setOnFinished( event -> window.setScene(homeScene) );
 
@@ -128,6 +131,14 @@ public class Gui extends Application {
         }
     }
 
+    public void addButtonsToController(DiscoverScene scene) {
+        NodeGetter nodeGetter = new NodeGetter();
+        ArrayList<Button> buttonArray = nodeGetter.getAllButtons(scene.getGrid());
+        for(Button button : buttonArray) {
+            button.setOnAction(new Controller(this));
+        }
+    }
+
     public void updateQuestionScene() throws FileNotFoundException {
         if(quiz.getQuestionCpt()<Constantes.NUMBER_OF_QUESTIONS.getValue()) {
             questionScene.colorPropositions();
@@ -140,7 +151,7 @@ public class Gui extends Application {
             this.questionScene.getProposition2().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[1]));
             this.questionScene.getProposition3().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[2]));
             this.questionScene.getProposition4().setText(quiz.getCurrentQuestion().getProposition(quiz.getCurrentQuestion().getQuestionOptions()[3]));
-            this.questionScene.getScoreLabel().setText("Score: "+quiz.getQuestionSerie().getQuestionSerieTotalScore());
+            this.questionScene.getScoreLabel().setText("Score: "+this.quiz.getQuestionSerie().getQuestionSerieTotalScore());
             this.quiz.setQuestionCpt(quiz.getQuestionCpt()+1);
         }
         else {
@@ -206,7 +217,7 @@ public class Gui extends Application {
 
     public void checkAnswerGUI(String answer) {
         stopTime = System.currentTimeMillis();
-        quiz.getCurrentQuestion().setQuestionTime(stopTime-startTime);
+        this.quiz.getCurrentQuestion().setQuestionTime(stopTime-startTime);
         this.quiz.getCurrentQuestion().checkAnswer(answer);
         if(quiz.getCurrentQuestion().getQuestionIsCorrect()) {
             questionScene.colorCorrectAnswer(answer);
@@ -287,5 +298,13 @@ public class Gui extends Application {
 
     public void setResultsScene(ResultsScene resultsScene) {
         this.resultsScene = resultsScene;
+    }
+
+    public DiscoverScene getDiscoverScene() {
+        return discoverScene;
+    }
+
+    public void setDiscoverScene(DiscoverScene discoverScene) {
+        this.discoverScene = discoverScene;
     }
 }
