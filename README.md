@@ -37,13 +37,7 @@ $ sh run.sh
 
 ## Screenshots
 
-<img alt="homeScene.png" src="resources/screenshots_and_gifs/homeScene.png" width="180" height="336" /> 
-<img alt="genreSelectionScene.png" src="resources/screenshots_and_gifs/genreSelectionScene.png" width="180" height="336" /> 
-<img alt="hiphopLanguageSelectionScene.png" src="resources/screenshots_and_gifs/hiphopLanguageSelectionScene.png" width="180" height="336" /> 
-<img alt="modeSelectionScene.png" src="resources/screenshots_and_gifs/modeSelectionScene.png" width="180" height="336" /> 
-<img alt="questionScene.png" src="resources/screenshots_and_gifs/questionScene.png" width="180" height="336" /> 
-<img alt="questionValidation.png" src="resources/screenshots_and_gifs/questionValidation.png" width="180" height="336" />
-<img alt="resultsScene.png" src="resources/screenshots_and_gifs/resultsScene.png" width="180" height="336" />  
+<img alt="homeScene.png" src="resources/screenshots_and_gifs/homeScene.png" width="180" height="336" />  <img alt="genreSelectionScene.png" src="resources/screenshots_and_gifs/genreSelectionScene.png" width="180" height="336" />  <img alt="hiphopLanguageSelectionScene.png" src="resources/screenshots_and_gifs/hiphopLanguageSelectionScene.png" width="180" height="336" />  <img alt="modeSelectionScene.png" src="resources/screenshots_and_gifs/modeSelectionScene.png" width="180" height="336" />  <img alt="questionScene.png" src="resources/screenshots_and_gifs/questionScene.png" width="180" height="336" />  <img alt="questionValidation.png" src="resources/screenshots_and_gifs/questionValidation.png" width="180" height="336" /> <img alt="resultsScene.png" src="resources/screenshots_and_gifs/resultsScene.png" width="180" height="336" />  
 
 ## Developed with
   - Ubuntu 18.04.2 LTS
