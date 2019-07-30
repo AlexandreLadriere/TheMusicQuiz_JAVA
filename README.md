@@ -32,6 +32,15 @@ To run the application, you just have to run the [run.sh] file:
 $ sh run.sh
 ```
 
+## Demo
+![gif-demo](resources/screenshots_and_gifs/demo.gif)
+
+## Screenshots
+
+<img src="resources/screenshots_and_gifs/homeScene.png" width="180" height="336" /> <img src="resources/screenshots_and_gifs/genreSelectionScene.png" width="180" height="336" /> <img src="resources/screenshots_and_gifs/hiphopLanguageSelectionScene.png" width="180" height="336" /> 
+<img src="resources/screenshots_and_gifs/modeSelectionScene.png" width="180" height="336" /> <img src="resources/screenshots_and_gifs/questionScene.png" width="180" height="336" /> <img src="resources/screenshots_and_gifs/questionValidation.png" width="180" height="336" />
+<img src="resources/screenshots_and_gifs/resultsScene.png" width="180" height="336" />  
+
 ## Developed with
   - Ubuntu 18.04.2 LTS
   - java 12.0.2 2019-07-16
@@ -54,7 +63,7 @@ This project is licensed under the MIT License - see the [LICENSE.md] file for d
 
 
 
-   [LICENSE.md]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/LICENSE.md>
+   [LICENSE.md]: <LICENSE.md>
    [instal_fonts.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/instal_fonts.sh>
    [compile.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/compile.sh>
    [run.sh]: <https://github.com/AlexandreLadriere/TheMusicQuiz_JAVA/blob/master/run.sh>

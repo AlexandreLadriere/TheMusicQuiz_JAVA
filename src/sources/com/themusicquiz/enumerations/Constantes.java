@@ -9,7 +9,7 @@ package com.themusicquiz.enumerations;
 public enum Constantes {
     NUMBER_OF_DB_PARAMETERS(4),
     NUMBER_OF_PROPOSITIONS(4),
-    NUMBER_OF_QUESTIONS(10),
+    NUMBER_OF_QUESTIONS(20),
     WINDOW_WIDTH(360),
     WINDOW_HEIGHT(640);
 
