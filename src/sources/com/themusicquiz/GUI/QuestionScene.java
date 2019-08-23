@@ -74,7 +74,7 @@ public class QuestionScene extends SceneApp {
         this.grid.add(questionLabel, 0, 0, 3, 2);
         this.grid.setMargin(questionLabel, new Insets(20, 10, 0, 10));
 
-        this.coverImage = new Image(new FileInputStream("/home/alexandre/Desktop/code_perso/[JAVA] The Music Quiz/DB/hiphop/FR_hiphop/covers/SCH - A7.jpeg"), 150, 150, true, true);
+        this.coverImage = new Image(new FileInputStream("../../DB/hiphop/FR_hiphop/covers/SCH - A7.jpeg"), 150, 150, true, true);
         this.coverLabel = new Label();
         this.coverLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.coverLabel.setGraphic(new ImageView(coverImage));
